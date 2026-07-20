@@ -480,8 +480,7 @@
       <h2>Let's build something with your data.</h2>
       <p>Open to part-time and remote reporting/analytics roles. Have a dashboard, a messy spreadsheet, or a reporting workflow that needs fixing? Let's talk.</p>
       <div class="contact-list">
-        <a class="cbtn" href="mailto:ruzeltimbal2@gmail.com">✉️ ruzeltimbal2@gmail.com</a>
-        <a class="cbtn" href="tel:+639812798273">📞 +63 981 279 8273</a>
+        <a class="cbtn" id="emailBtn" href="#">✉️ <span id="emailText">Email me</span></a>
         <a class="cbtn" href="https://www.onlinejobs.ph/jobseekers/info/3424754" target="_blank" rel="noopener">💼 OnlineJobs Profile</a>
         <a class="cbtn" href="Ruzel-Timbal-Resume.pdf" download>⬇️ Download Résumé</a>
       </div>
@@ -495,6 +494,17 @@
 
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // Assemble email at runtime so scraper bots don't harvest it from the HTML source
+  (function () {
+    var user = 'ruzeltimbal2', domain = 'gmail.com';
+    var addr = user + '@' + domain;
+    var btn = document.getElementById('emailBtn');
+    if (btn) {
+      btn.href = 'mailto:' + addr;
+      document.getElementById('emailText').textContent = addr;
+    }
+  })();
 
   // Reveal on scroll
   const io = new IntersectionObserver((entries) => {
