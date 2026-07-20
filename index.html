@@ -107,8 +107,7 @@
   .avatar {
     width: 132px; height: 132px; border-radius: 50%; margin: 0 auto 18px;
     background: linear-gradient(135deg, #2f80ed, #27ae60); color: #fff;
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Sora'; font-weight: 800; font-size: 2.6rem; letter-spacing: .02em;
+    display: block; object-fit: cover;
     border: 4px solid rgba(255,255,255,.25); box-shadow: 0 10px 30px rgba(0,0,0,.3);
   }
   .avatar-card .an { font-family:'Sora'; font-weight:700; font-size:1.15rem; }
@@ -208,7 +207,7 @@
       </div>
     </div>
     <div class="avatar-card">
-      <div class="avatar">RT</div>
+      <img class="avatar" src="photo.png" alt="Ruzel P. Timbal" width="132" height="132" />
       <div class="an">Ruzel P. Timbal, ECE</div>
       <div class="at">Cebu, Philippines</div>
       <div class="verified">✔ ID Verified · Licensed Engineer</div>
