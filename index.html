@@ -169,6 +169,33 @@
   .tags { display:flex; flex-wrap:wrap; gap:10px; }
   .tag { background:#eef4fa; border:1px solid var(--line); color:var(--navy); padding:8px 15px; border-radius:999px; font-size:.86rem; font-weight:600; }
 
+  /* PROJECTS */
+  .proj-viz {
+    height: 108px; border-radius: 12px; margin-bottom: 18px; padding: 16px;
+    display: flex; align-items: flex-end; gap: 7px;
+    background: linear-gradient(135deg, #0d3a63, #12508a); position: relative; overflow: hidden;
+  }
+  .proj-viz::before {
+    content:""; position:absolute; inset:0;
+    background-image: linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px);
+    background-size: 100% 26px;
+  }
+  .proj-viz i { flex:1; border-radius:3px 3px 0 0; background: linear-gradient(180deg,#7ff0ad,#2f80ed); position:relative; z-index:1; transition: height .8s cubic-bezier(.2,.7,.2,1); }
+  .proj-viz .donut {
+    width:64px; height:64px; border-radius:50%; margin:auto 8px auto auto; z-index:1;
+    background: conic-gradient(#7ff0ad 0 62%, #2f80ed 62% 84%, rgba(255,255,255,.25) 84% 100%);
+    -webkit-mask: radial-gradient(circle 20px at center, transparent 98%, #000 100%);
+            mask: radial-gradient(circle 20px at center, transparent 98%, #000 100%);
+  }
+  .proj-viz .line-svg { position:absolute; inset:0; width:100%; height:100%; z-index:1; }
+  .proj-tags { display:flex; flex-wrap:wrap; gap:7px; margin-bottom:12px; }
+  .proj-tags span { font-size:.72rem; font-weight:700; color:var(--blue); background:#eaf3ff; padding:4px 10px; border-radius:999px; letter-spacing:.02em; }
+  .card.proj h3 { margin-bottom:8px; }
+  .card.proj p { margin-bottom:14px; }
+  .proj-meta { font-size:.8rem; color:var(--muted); font-weight:600; border-top:1px solid var(--line); padding-top:12px; }
+  .proj-note { text-align:center; color:var(--muted); font-size:.88rem; margin-top:30px; }
+  .proj-note a { color:var(--blue); font-weight:600; }
+
   /* TIMELINE */
   .timeline { position: relative; margin-left: 8px; }
   .timeline::before { content:""; position:absolute; left:9px; top:6px; bottom:6px; width:2px; background:var(--line); }
@@ -208,6 +235,7 @@
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
       <a href="#education">Education</a>
       <a href="#contact" class="nav-cta">Hire Me</a>
     </nav>
@@ -338,8 +366,73 @@
   </div>
 </section>
 
+<!-- PROJECTS -->
+<section id="projects" style="background:#fff;">
+  <div class="wrap reveal">
+    <span class="eyebrow">Selected Work</span>
+    <h2 class="section-title">Projects &amp; Deliverables</h2>
+    <p class="section-sub">Representative reporting and automation work from my analytics roles. Live dashboards contain confidential business data — a guided walkthrough and screenshots are available on request.</p>
+    <div class="grid-3">
+
+      <div class="card proj">
+        <div class="proj-viz"><i style="height:45%"></i><i style="height:70%"></i><i style="height:55%"></i><i style="height:85%"></i><i style="height:65%"></i><i style="height:95%"></i><i style="height:78%"></i></div>
+        <div class="proj-tags"><span>Power BI</span><span>SQL</span><span>DAX</span></div>
+        <h3>Recruitment Analytics Dashboard</h3>
+        <p>Interactive Power BI dashboards tracking recruitment KPIs — requisition status, time-to-fill, and recruiter performance — so leadership can read the pipeline at a glance instead of digging through raw ATS data.</p>
+        <div class="proj-meta">Role: Reporting Analyst · Tailored Management</div>
+      </div>
+
+      <div class="card proj">
+        <div class="proj-viz"><span class="donut"></span><i style="height:60%"></i><i style="height:40%"></i><i style="height:80%"></i></div>
+        <div class="proj-tags"><span>SQL Server</span><span>Power BI</span><span>ETL</span></div>
+        <h3>Cross-Departmental Reporting Suite</h3>
+        <p>Complex SQL queries that extract, transform, and consolidate data from multiple relational databases into a single source of truth — powering standardized, reliable reports shared across teams.</p>
+        <div class="proj-meta">Reporting &amp; analytics · multi-team stakeholders</div>
+      </div>
+
+      <div class="card proj">
+        <div class="proj-viz">
+          <svg class="line-svg" viewBox="0 0 100 60" preserveAspectRatio="none">
+            <polyline points="0,48 16,40 32,44 48,26 64,30 80,14 100,8" fill="none" stroke="#7ff0ad" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="proj-tags"><span>Excel</span><span>VBA</span><span>Macros</span></div>
+        <h3>Excel VBA Automation Toolkit</h3>
+        <p>Custom VBA macros and templates that automate repetitive reporting — data cleaning, formatting, and multi-sheet consolidation — collapsing hours of manual spreadsheet work into a single click.</p>
+        <div class="proj-meta">Advanced macro &amp; VBA development</div>
+      </div>
+
+      <div class="card proj">
+        <div class="proj-viz"><i style="height:35%"></i><i style="height:50%"></i><i style="height:45%"></i><i style="height:62%"></i><i style="height:58%"></i><i style="height:74%"></i><i style="height:88%"></i></div>
+        <div class="proj-tags"><span>Power Automate</span><span>Microsoft 365</span></div>
+        <h3>Workflow Automation Flows</h3>
+        <p>Automated flows that route approvals, sync data between systems, and trigger scheduled report refreshes — cutting manual handoffs and improving turnaround on recurring deliverables.</p>
+        <div class="proj-meta">Process optimization · operational efficiency</div>
+      </div>
+
+      <div class="card proj">
+        <div class="proj-viz"><span class="donut" style="background:conic-gradient(#7ff0ad 0 88%, #2f80ed 88% 100%);"></span><i style="height:90%"></i><i style="height:70%"></i></div>
+        <div class="proj-tags"><span>Data Validation</span><span>SQL</span><span>Excel</span></div>
+        <h3>Data Validation &amp; QA Framework</h3>
+        <p>A repeatable validation process that cross-checks source against output, flags anomalies, and verifies accuracy and consistency before any report reaches stakeholders — building trust in the numbers.</p>
+        <div class="proj-meta">Accuracy, consistency &amp; reliability</div>
+      </div>
+
+      <div class="card proj">
+        <div class="proj-viz"><i style="height:55%"></i><i style="height:48%"></i><i style="height:66%"></i><i style="height:52%"></i><i style="height:72%"></i><i style="height:60%"></i><i style="height:82%"></i></div>
+        <div class="proj-tags"><span>Excel</span><span>Data Analysis</span><span>Reporting</span></div>
+        <h3>Product Engineering Analytics</h3>
+        <p>Analyzed production and product-engineering data at Taiyo Yuden to surface trends and support process improvements — the analytical foundation that carries into my reporting work today.</p>
+        <div class="proj-meta">Role: Data Analyst · Taiyo Yuden (Philippines)</div>
+      </div>
+
+    </div>
+    <p class="proj-note">Want to see the real dashboards in action? <a href="#contact">Get in touch</a> for a live walkthrough.</p>
+  </div>
+</section>
+
 <!-- EDUCATION + ACHIEVEMENTS -->
-<section id="education" style="background:#fff;">
+<section id="education">
   <div class="wrap reveal">
     <span class="eyebrow">Background</span>
     <h2 class="section-title">Education &amp; Achievements</h2>
