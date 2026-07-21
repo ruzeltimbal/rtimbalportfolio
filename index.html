@@ -138,11 +138,12 @@
 
   /* STAT STRIP */
   .stats { background: var(--navy-2); color:#fff; }
-  .stats .wrap { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; padding: 34px 24px; }
+  .stats .wrap { display: grid; grid-template-columns: repeat(5,auto); justify-content: space-between; gap: 20px; padding: 34px 24px; }
   .stat { text-align: center; }
   .stat .num { font-family:'Sora'; font-weight:800; font-size: 2rem; color:#7ff0ad; }
+  .stat .num.num-sm { white-space: nowrap; }
   .stat .lbl { font-size:.82rem; color:#b9d0e6; margin-top:2px; }
-  @media (max-width:640px){ .stats .wrap{ grid-template-columns: repeat(2,1fr);} }
+  @media (max-width:640px){ .stats .wrap{ grid-template-columns: repeat(2,1fr); justify-content: normal; } .stat .num.num-sm{ white-space: normal; } }
 
   /* CARDS / GRID */
   .grid-2 { display:grid; grid-template-columns: 1fr 1fr; gap: 24px; }
@@ -336,6 +337,7 @@
     <div class="stat"><div class="num">Power BI</div><div class="lbl">Dashboards &amp; reporting</div></div>
     <div class="stat"><div class="num">SQL</div><div class="lbl">Query &amp; database expert</div></div>
     <div class="stat"><div class="num">VBA</div><div class="lbl">Excel macro automation</div></div>
+    <div class="stat"><div class="num num-sm">Power Automate</div><div class="lbl">Workflow automation</div></div>
   </div>
 </section>
 
