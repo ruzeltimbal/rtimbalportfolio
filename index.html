@@ -78,13 +78,39 @@
   .nav-links { display: flex; gap: 26px; }
   .nav-links a { color: var(--muted); font-weight: 500; font-size: .92rem; transition: color .2s; }
   .nav-links a:hover { color: var(--navy); }
+  .nav-links a.active:not(.nav-cta) { color: var(--accent-d); }
   .nav-cta {
     background: var(--accent); color: #fff !important; padding: 9px 18px;
     border-radius: 999px; font-weight: 700; font-size: .88rem;
     transition: transform .15s, box-shadow .2s;
   }
   .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 8px 18px rgba(46,204,113,.35); }
-  @media (max-width: 720px){ .nav-links a:not(.nav-cta){ display:none; } }
+  /* Hamburger toggle — hidden on desktop, drives the mobile dropdown */
+  .nav-toggle {
+    display: none; flex-direction: column; justify-content: center; gap: 5px;
+    width: 42px; height: 42px; padding: 9px; border: none; background: transparent; cursor: pointer;
+  }
+  .nav-toggle span {
+    display: block; height: 2px; width: 100%; background: var(--navy); border-radius: 2px;
+    transition: transform .25s ease, opacity .2s ease;
+  }
+  @media (max-width: 720px){
+    .nav-toggle { display: flex; }
+    .nav.nav-open .nav-toggle span:nth-child(1){ transform: translateY(7px) rotate(45deg); }
+    .nav.nav-open .nav-toggle span:nth-child(2){ opacity: 0; }
+    .nav.nav-open .nav-toggle span:nth-child(3){ transform: translateY(-7px) rotate(-45deg); }
+    .nav-links {
+      position: absolute; top: 64px; left: 0; right: 0;
+      flex-direction: column; align-items: stretch; gap: 0;
+      background: rgba(255,255,255,.98); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line); box-shadow: var(--shadow); padding: 8px 0;
+      max-height: 0; overflow: hidden; opacity: 0; visibility: hidden;
+      transition: max-height .3s ease, opacity .25s ease, visibility .3s;
+    }
+    .nav.nav-open .nav-links { max-height: 420px; opacity: 1; visibility: visible; }
+    .nav-links a:not(.nav-cta){ display: block; padding: 13px 24px; font-size: 1rem; }
+    .nav-links .nav-cta { margin: 10px 24px 6px; text-align: center; }
+  }
 
   /* HERO */
   .hero {
@@ -226,6 +252,32 @@
   .reveal { opacity:0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
   .reveal.in { opacity:1; transform:none; }
 
+  /* Scroll progress bar — thin accent line that fills as the page scrolls */
+  .scroll-progress {
+    position: fixed; top: 0; left: 0; height: 3px; width: 0;
+    background: linear-gradient(90deg, var(--blue), var(--accent));
+    z-index: 60; transition: width .1s linear;
+  }
+
+  /* Hero entrance — staggered fade-up on page load for a strong first impression */
+  @keyframes hero-up {
+    from { opacity: 0; transform: translateY(22px); }
+    to   { opacity: 1; transform: none; }
+  }
+  .hero .status,
+  .hero h1,
+  .hero .role,
+  .hero .lede,
+  .hero .hero-cta,
+  .hero .avatar-card {
+    animation: hero-up .7s cubic-bezier(.2,.7,.2,1) both;
+  }
+  .hero .avatar-card { animation-delay: .20s; }
+  .hero h1 { animation-delay: .08s; }
+  .hero .role { animation-delay: .16s; }
+  .hero .lede { animation-delay: .24s; }
+  .hero .hero-cta { animation-delay: .32s; }
+
   /* ===== DATA-THEMED ANIMATIONS ===== */
 
   /* Hero: subtle live "dashboard" bar chart drifting behind the headline */
@@ -267,6 +319,8 @@
 
   /* Respect users who prefer reduced motion — show final state, no movement */
   @media (prefers-reduced-motion: reduce) {
+    .hero .status, .hero h1, .hero .role, .hero .lede, .hero .hero-cta, .hero .avatar-card { animation: none; }
+    .scroll-progress { transition: none; }
     .hero-chart span { animation: none; transform: scaleY(.7); }
     .proj-viz i, .proj-viz .donut { transform: none; transition: none; }
     .proj-viz .donut { opacity: 1; }
@@ -276,10 +330,12 @@
 </head>
 <body>
 
-<header class="nav">
+<div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
   <div class="wrap nav-inner">
     <div class="brand">Ruzel <span>Timbal</span></div>
-    <nav class="nav-links">
+    <nav class="nav-links" id="navLinks">
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#experience">Experience</a>
@@ -287,6 +343,9 @@
       <a href="#education">Education</a>
       <a href="#contact" class="nav-cta">Hire Me</a>
     </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </header>
 
@@ -561,6 +620,48 @@
 
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // Mobile nav: toggle the dropdown menu and close it after a link is tapped
+  (function () {
+    const nav = document.getElementById('nav');
+    const toggle = document.getElementById('navToggle');
+    const links = document.getElementById('navLinks');
+    if (!nav || !toggle || !links) return;
+    const close = () => { nav.classList.remove('nav-open'); toggle.setAttribute('aria-expanded', 'false'); };
+    toggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('nav-open');
+      toggle.setAttribute('aria-expanded', open);
+    });
+    links.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
+  })();
+
+  // Scroll progress bar — fill proportional to how far the page is scrolled
+  (function () {
+    const progress = document.getElementById('scrollProgress');
+    if (!progress) return;
+    const update = () => {
+      const doc = document.documentElement;
+      const max = doc.scrollHeight - doc.clientHeight;
+      progress.style.width = (max > 0 ? (doc.scrollTop / max) * 100 : 0) + '%';
+    };
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+  })();
+
+  // Active-section highlight: light up the nav link for whichever section is in view
+  (function () {
+    const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+    const spy = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
+      });
+    }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+    navLinks.forEach(a => {
+      const sec = document.getElementById(a.getAttribute('href').slice(1));
+      if (sec) spy.observe(sec);
+    });
+  })();
 
   // Assemble email at runtime so scraper bots don't harvest it from the HTML source
   (function () {
