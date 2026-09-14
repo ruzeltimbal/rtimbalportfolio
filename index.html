@@ -246,6 +246,8 @@
   .contact-list { display:flex; justify-content:center; gap:16px; flex-wrap:wrap; }
   .cbtn { display:inline-flex; align-items:center; gap:10px; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.18); padding:12px 20px; border-radius:12px; font-weight:600; font-size:.92rem; transition:background .2s, transform .15s; }
   .cbtn:hover { background:rgba(255,255,255,.16); transform:translateY(-2px); }
+  .cbtn-primary { background: var(--accent); border-color: var(--accent); color:#fff; }
+  .cbtn-primary:hover { background: var(--accent-d); }
 
   footer { text-align:center; color:var(--muted); font-size:.85rem; padding:34px 0 50px; }
 
@@ -606,6 +608,7 @@
       <h2>Let's build something with your data.</h2>
       <p>Open to part-time and remote reporting/analytics roles. Have a dashboard, a messy spreadsheet, or a reporting workflow that needs fixing? Let's talk.</p>
       <div class="contact-list">
+        <a class="cbtn cbtn-primary" href="https://calendar.app.google/XLuNjJNjvTuN8BTN8" target="_blank" rel="noopener">📅 Book a call</a>
         <a class="cbtn" id="emailBtn" href="#">✉️ <span id="emailText">Email me</span></a>
         <a class="cbtn" href="https://www.linkedin.com/in/ruzel-timbal" target="_blank" rel="noopener">💼 LinkedIn Profile</a>
         <a class="cbtn" href="Ruzel-Timbal-Resume.pdf" download>⬇️ Download Résumé</a>
