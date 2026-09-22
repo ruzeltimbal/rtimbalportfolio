@@ -16,14 +16,14 @@
 <!-- Social / link-preview cards -->
 <meta property="og:type" content="website" />
 <meta property="og:title" content="Ruzel P. Timbal — Data & Reporting Analyst" />
-<meta property="og:description" content="Excel Expert &amp; Power BI Developer turning raw data into clear, actionable insights. Available for part-time / remote work." />
+<meta property="og:description" content="Excel Expert &amp; Power BI Developer turning raw data into clear, actionable insights. Open to full-time · part-time · remote work." />
 <meta property="og:url" content="https://ruzeltimbal.github.io/rtimbalportfolio/" />
 <meta property="og:image" content="https://ruzeltimbal.github.io/rtimbalportfolio/og-banner.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Ruzel P. Timbal — Data & Reporting Analyst" />
-<meta name="twitter:description" content="Excel Expert &amp; Power BI Developer turning raw data into clear, actionable insights." />
+<meta name="twitter:description" content="Excel Expert &amp; Power BI Developer turning raw data into clear, actionable insights. Open to full-time · part-time · remote work." />
 <meta name="twitter:image" content="https://ruzeltimbal.github.io/rtimbalportfolio/og-banner.png" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -134,7 +134,9 @@
   @keyframes pulse { 0%{box-shadow:0 0 0 0 rgba(46,204,113,.6)} 70%{box-shadow:0 0 0 10px rgba(46,204,113,0)} 100%{box-shadow:0 0 0 0 rgba(46,204,113,0)} }
   .hero h1 { font-size: clamp(2.1rem, 5vw, 3.4rem); font-weight: 800; letter-spacing: -.02em; margin-bottom: 14px; }
   .hero h1 .grad { background: linear-gradient(90deg,#7ff0ad,#57c6ff); -webkit-background-clip: text; background-clip: text; color: transparent; }
-  .hero .role { font-size: 1.12rem; color: #aecbe6; font-weight: 500; margin-bottom: 20px; }
+  .hero .role { font-size: 1.12rem; color: #aecbe6; font-weight: 500; margin-bottom: 10px; }
+  .hero .role-ai { display:flex; align-items:center; gap:10px; flex-wrap:wrap; color:#7ff0ad; font-weight:700; font-size:1rem; margin-bottom:24px; }
+  .ra-tag { display:inline-block; font-size:.64rem; font-weight:800; letter-spacing:.07em; text-transform:uppercase; color:#0a2c4d; background:var(--accent); padding:4px 10px; border-radius:999px; }
   .hero p.lede { color: #c6d8ea; max-width: 560px; margin-bottom: 30px; }
   .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; }
   .btn {
@@ -164,11 +166,12 @@
 
   /* STAT STRIP */
   .stats { background: var(--navy-2); color:#fff; }
-  .stats .wrap { display: grid; grid-template-columns: repeat(5,auto); justify-content: space-between; gap: 20px; padding: 34px 24px; }
+  .stats .wrap { display: grid; grid-template-columns: repeat(6,auto); justify-content: space-between; gap: 20px; padding: 34px 24px; }
   .stat { text-align: center; }
   .stat .num { font-family:'Sora'; font-weight:800; font-size: 2rem; color:#7ff0ad; }
   .stat .num.num-sm { white-space: nowrap; }
   .stat .lbl { font-size:.82rem; color:#b9d0e6; margin-top:2px; }
+  @media (max-width:820px){ .stats .wrap{ grid-template-columns: repeat(3,1fr); justify-content: normal; } }
   @media (max-width:640px){ .stats .wrap{ grid-template-columns: repeat(2,1fr); justify-content: normal; } .stat .num.num-sm{ white-space: normal; } }
 
   /* CARDS / GRID */
@@ -195,6 +198,10 @@
   .bar > i { display:block; height:100%; border-radius:999px; background: linear-gradient(90deg,var(--blue),var(--accent)); width:0; transition: width 1.2s cubic-bezier(.2,.7,.2,1); }
   .tags { display:flex; flex-wrap:wrap; gap:10px; }
   .tag { background:#eef4fa; border:1px solid var(--line); color:var(--navy); padding:8px 15px; border-radius:999px; font-size:.86rem; font-weight:600; }
+  .ai-skills { margin-top:30px; border:1.5px solid var(--accent); border-radius:var(--radius); padding:26px 28px; background:#f5fdf8; box-shadow:0 0 0 4px rgba(46,204,113,.08); }
+  .ai-skills-head { display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:10px; }
+  .ai-skills-head h3 { font-size:1.15rem; color:var(--navy); }
+  .ai-skills > p { color:var(--muted); font-size:.94rem; margin-bottom:16px; max-width:660px; }
 
   /* PROJECTS */
   .proj-viz {
@@ -222,6 +229,59 @@
   .proj-meta { font-size:.8rem; color:var(--muted); font-weight:600; border-top:1px solid var(--line); padding-top:12px; }
   .proj-note { text-align:center; color:var(--muted); font-size:.88rem; margin-top:30px; }
   .proj-note a { color:var(--blue); font-weight:600; }
+  /* Featured project card */
+  .proj-featured { grid-column: 1 / -1; border:1.5px solid var(--accent); box-shadow:0 0 0 4px rgba(46,204,113,.10); }
+  .proj-featured-solo { margin: 8px 0 34px; }
+  /* Web-app mockup visual (replaces the bar chart on the AI project) */
+  .proj-viz-app { display:block; align-items:stretch; padding:12px; }
+  .proj-viz-app .appwin { height:100%; background:#fff; border-radius:8px; overflow:hidden; display:flex; flex-direction:column; box-shadow:0 6px 18px rgba(0,0,0,.28); position:relative; z-index:1; }
+  .proj-viz-app .appbar { height:22px; flex:none; background:#eef3f8; display:flex; align-items:center; gap:5px; padding:0 10px; border-bottom:1px solid #e2e8f0; }
+  .proj-viz-app .dot { width:7px; height:7px; border-radius:50%; background:#cbd5e1; }
+  .proj-viz-app .dot:nth-child(1){ background:#ff5f57; }
+  .proj-viz-app .dot:nth-child(2){ background:#febc2e; }
+  .proj-viz-app .dot:nth-child(3){ background:#28c840; }
+  .proj-viz-app .url { margin-left:8px; font-size:.6rem; color:#64748b; font-weight:600; letter-spacing:.02em; }
+  .proj-viz-app .approw { flex:1; display:flex; align-items:center; gap:16px; padding:0 16px; }
+  .proj-viz-app .doc { width:50px; height:52px; flex:none; background:#fff; border:1px solid #dbe4ee; border-radius:4px; padding:8px 7px; display:flex; flex-direction:column; gap:5px; position:relative; box-shadow:0 2px 6px rgba(13,58,99,.1); }
+  .proj-viz-app .doc .ln { display:block; height:3px; border-radius:2px; background:#dbe4ee; text-decoration:none; }
+  .proj-viz-app .doc .ln:nth-child(1){ width:80%; }
+  .proj-viz-app .doc .ln:nth-child(2){ width:100%; }
+  .proj-viz-app .doc .ln:nth-child(3){ width:62%; }
+  .proj-viz-app .doc .ln:nth-child(4){ width:90%; }
+  .proj-viz-app .pglabel { position:absolute; bottom:3px; right:5px; font-size:.5rem; font-weight:800; color:#2f80ed; letter-spacing:.03em; }
+  .proj-viz-app .arrow { color:#7ff0ad; font-size:1.1rem; font-weight:800; flex:none; }
+  .proj-viz-app .results { flex:1; display:flex; flex-direction:column; gap:7px; }
+  .proj-viz-app .res { display:flex; align-items:center; gap:8px; }
+  .proj-viz-app .chk { width:15px; height:15px; flex:none; border-radius:50%; background:#28c840; position:relative; }
+  .proj-viz-app .chk::after { content:""; position:absolute; left:5px; top:3px; width:3px; height:6px; border:solid #fff; border-width:0 2px 2px 0; transform:rotate(45deg); }
+  .proj-viz-app .nm { flex:1; height:7px; border-radius:4px; background:linear-gradient(90deg,#7ff0ad,#2f80ed); text-decoration:none; }
+  .proj-viz-app .res:nth-child(2) .nm { max-width:80%; }
+  .proj-viz-app .res:nth-child(3) .nm { max-width:62%; }
+  .proj-featured .proj-badge { display:inline-block; background:var(--accent); color:#fff; font-size:.68rem; font-weight:700; padding:3px 11px; border-radius:999px; letter-spacing:.05em; text-transform:uppercase; margin-bottom:12px; }
+  .proj-actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:18px; }
+  .proj-actions a { font-size:.85rem; font-weight:700; padding:9px 17px; border-radius:10px; text-decoration:none; transition: all .2s ease; }
+  .proj-actions .pa-live { background:var(--accent); color:#fff; }
+  .proj-actions .pa-live:hover { background:var(--accent-d); transform:translateY(-2px); }
+  .proj-actions .pa-case { border:1.5px solid var(--line); color:var(--navy); }
+  .proj-actions .pa-case:hover { border-color:var(--navy); }
+  /* Case study */
+  .case-grid { display:grid; grid-template-columns: 1.6fr 1fr; gap:34px; margin-top:14px; align-items:start; }
+  .case-block { margin-bottom:24px; }
+  .case-block:last-child { margin-bottom:0; }
+  .case-block h3 { font-size:1.02rem; color:var(--navy); margin-bottom:7px; }
+  .case-block p { color:var(--muted); font-size:.95rem; line-height:1.65; }
+  .case-block ul { margin:8px 0 0; padding-left:20px; color:var(--muted); font-size:.94rem; line-height:1.7; }
+  .case-block ul li { margin-bottom:4px; }
+  .case-facts { background:var(--card); border:1px solid var(--line); border-radius:var(--radius); padding:26px; position:sticky; top:90px; }
+  .case-facts dl { margin:0; }
+  .case-facts dt { font-size:.7rem; text-transform:uppercase; letter-spacing:.06em; color:var(--blue); font-weight:700; margin-top:16px; }
+  .case-facts dt:first-child { margin-top:0; }
+  .case-facts dd { margin:4px 0 0; font-size:.9rem; color:var(--navy); font-weight:600; }
+  .case-facts .cf-tags { display:flex; flex-wrap:wrap; gap:6px; margin-top:6px; }
+  .case-facts .cf-tags span { font-size:.7rem; font-weight:700; color:var(--blue); background:#eaf3ff; padding:4px 9px; border-radius:999px; }
+  .case-live { display:inline-block; margin-top:20px; background:var(--accent); color:#fff; font-size:.85rem; font-weight:700; padding:10px 18px; border-radius:10px; text-decoration:none; transition: all .2s ease; }
+  .case-live:hover { background:var(--accent-d); transform:translateY(-2px); }
+  @media (max-width:820px){ .case-grid { grid-template-columns:1fr; } .case-facts { position:static; } }
 
   /* TIMELINE */
   .timeline { position: relative; margin-left: 8px; }
@@ -269,6 +329,7 @@
   .hero .status,
   .hero h1,
   .hero .role,
+  .hero .role-ai,
   .hero .lede,
   .hero .hero-cta,
   .hero .avatar-card {
@@ -277,8 +338,9 @@
   .hero .avatar-card { animation-delay: .20s; }
   .hero h1 { animation-delay: .08s; }
   .hero .role { animation-delay: .16s; }
-  .hero .lede { animation-delay: .24s; }
-  .hero .hero-cta { animation-delay: .32s; }
+  .hero .role-ai { animation-delay: .20s; }
+  .hero .lede { animation-delay: .28s; }
+  .hero .hero-cta { animation-delay: .36s; }
 
   /* ===== DATA-THEMED ANIMATIONS ===== */
 
@@ -321,7 +383,7 @@
 
   /* Respect users who prefer reduced motion — show final state, no movement */
   @media (prefers-reduced-motion: reduce) {
-    .hero .status, .hero h1, .hero .role, .hero .lede, .hero .hero-cta, .hero .avatar-card { animation: none; }
+    .hero .status, .hero h1, .hero .role, .hero .role-ai, .hero .lede, .hero .hero-cta, .hero .avatar-card { animation: none; }
     .scroll-progress { transition: none; }
     .hero-chart span { animation: none; transform: scaleY(.7); }
     .proj-viz i, .proj-viz .donut { transform: none; transition: none; }
@@ -373,9 +435,10 @@
   </div>
   <div class="wrap hero-grid">
     <div>
-      <div class="status"><span class="dot"></span> Available for part-time / remote work</div>
+      <div class="status"><span class="dot"></span> Open to full-time · part-time · remote</div>
       <h1>Turning raw data into <span class="grad">clear, actionable insights.</span></h1>
-      <p class="role">Data &amp; Reporting Analyst · Excel Expert · Power BI Developer</p>
+      <p class="role">Data &amp; Reporting Analyst · Excel Automation Expert · Power BI Developer</p>
+      <p class="role-ai"><span class="ra-tag">Beyond Analytics</span> AI Solutions Builder</p>
       <p class="lede">Licensed Electronics Engineer with 10+ years of analytical experience — building dashboards, automating workflows, and writing SQL that helps businesses make smarter, faster decisions.</p>
       <div class="hero-cta">
         <a href="#contact" class="btn btn-primary">Get in touch →</a>
@@ -399,6 +462,7 @@
     <div class="stat"><div class="num">SQL</div><div class="lbl">Advanced querying &amp; reporting</div></div>
     <div class="stat"><div class="num">VBA</div><div class="lbl">Excel macro automation</div></div>
     <div class="stat"><div class="num num-sm">Power Automate</div><div class="lbl">Workflow automation</div></div>
+    <div class="stat"><div class="num">AI</div><div class="lbl">Solutions Builder</div></div>
   </div>
 </section>
 
@@ -418,6 +482,11 @@
         <div class="ic">🧠</div>
         <h3>What I do best</h3>
         <p>I design reports, visuals, and dashboards for cross-departmental stakeholders; validate data for accuracy and reliability; and build SQL queries and automated workflows that turn scattered numbers into a single clear story.</p>
+      </div>
+      <div class="card" style="grid-column:1 / -1;">
+        <div class="ic">🤖</div>
+        <h3>Beyond analytics — AI Solutions Builder</h3>
+        <p>I've also grown into building custom software with AI development tools — scoping a client's problem, then designing, building, and deploying a working web app end-to-end. It's the same analytical mindset applied to shipping real products: pairing careful attention to data accuracy with AI to deliver exactly what a business needs, fast.</p>
       </div>
     </div>
   </div>
@@ -452,6 +521,17 @@
           <h3>Strengths</h3>
           <p>Strong analytical &amp; problem-solving skills with keen attention to detail — focused on transforming data into actionable insights and clear visual reports.</p>
         </div>
+      </div>
+    </div>
+
+    <div class="ai-skills">
+      <div class="ai-skills-head"><span class="ra-tag">Beyond Analytics</span><h3>AI Solutions Builder</h3></div>
+      <p>A separate, newer capability from the core analytics toolkit above — using AI development tools to design, build, and ship full working applications end-to-end, from first requirement to live deployment.</p>
+      <div class="tags">
+        <span class="tag">AI-Assisted Development</span><span class="tag">LLMs / AI Vision</span><span class="tag">Python</span>
+        <span class="tag">Flask</span><span class="tag">REST APIs</span><span class="tag">OCR</span>
+        <span class="tag">SQLite</span><span class="tag">Docker</span><span class="tag">Azure Deployment</span>
+        <span class="tag">Full-Stack Web Apps</span>
       </div>
     </div>
   </div>
@@ -559,6 +639,92 @@
   </div>
 </section>
 
+<!-- SIDE PROJECT · AI SOLUTIONS BUILDER -->
+<section id="side-project" style="background:#fff;">
+  <div class="wrap reveal">
+    <span class="eyebrow">Side Project · Beyond Analytics</span>
+    <h2 class="section-title">Also an AI Solutions Builder</h2>
+    <p class="section-sub">Alongside my core work as a Data &amp; Reporting Analyst and Power BI Developer, I also design and ship custom software for specific business problems — using AI development tools to build real, working solutions. Here's a side project I built end-to-end for a client.</p>
+
+    <div class="card proj proj-featured proj-featured-solo">
+      <div class="proj-viz proj-viz-app" aria-hidden="true">
+        <div class="appwin">
+          <div class="appbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><b class="url">pdfrx · name extractor</b></div>
+          <div class="approw">
+            <div class="doc"><u class="ln"></u><u class="ln"></u><u class="ln"></u><u class="ln"></u><b class="pglabel">PDF</b></div>
+            <div class="arrow">→</div>
+            <div class="results">
+              <div class="res"><em class="chk"></em><s class="nm"></s></div>
+              <div class="res"><em class="chk"></em><s class="nm"></s></div>
+              <div class="res"><em class="chk"></em><s class="nm"></s></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <span class="proj-badge">AI Solutions Builder</span>
+      <div class="proj-tags"><span>Python</span><span>Flask</span><span>AI Vision</span><span>OCR</span><span>SQLite</span><span>Docker</span><span>Azure</span></div>
+      <h3>AI-Powered PDF Prescription Name Extractor</h3>
+      <p>A full-stack web app built end-to-end for a client that automatically reads scanned school-therapy prescription PDFs, extracts each student's name with AI vision, and saves clean, structured records to a database — replacing slow, error-prone manual data entry with a fast upload-and-review flow. Designed, built, and deployed solo, using AI development tools to accelerate the build.</p>
+      <div class="proj-actions">
+        <a class="pa-live" href="https://pdfrx.eastus.cloudapp.azure.com/" target="_blank" rel="noopener">View live app ↗</a>
+        <a class="pa-case" href="#case-study">Read the case study →</a>
+      </div>
+    </div>
+
+    <div class="case-grid" id="case-study">
+      <div>
+        <div class="case-block">
+          <h3>Background</h3>
+          <p>A school-based therapy provider received prescriptions as scanned PDF documents. To keep their records current, staff had to open each file, read every student's name, and manually retype it into their system — one page at a time. Across large batches this was slow, repetitive, and easy to get wrong, with typos slipping into important records.</p>
+        </div>
+        <div class="case-block">
+          <h3>Objective</h3>
+          <p>Turn a manual, hours-long data-entry task into a quick, reliable process: let staff upload a scanned PDF and get accurate, structured student names back in minutes — ready to review and save — while keeping access secure and available from anywhere.</p>
+        </div>
+        <div class="case-block">
+          <h3>What the client needed</h3>
+          <ul>
+            <li>Upload scanned prescription PDFs directly through a browser</li>
+            <li>Automatically detect each student's name per page — even on imperfect scans</li>
+            <li>A quick way to review results before committing them</li>
+            <li>Save clean records to a searchable database</li>
+            <li>Secure, login-protected access</li>
+            <li>Hosted online so the team could use it from any location</li>
+          </ul>
+        </div>
+        <div class="case-block">
+          <h3>My approach</h3>
+          <p>I scoped the problem, designed the workflow and data model, and built the entire application solo — using AI development tools to accelerate the build rather than replace the thinking behind it. The app converts each PDF page into an image, then uses AI vision with structured tool-calling to read and return names reliably, with an OCR fallback for tricky scans. Progress streams back page-by-page in real time so nothing feels like a black box, and logins are secured with hashed passwords.</p>
+          <p>For hosting, the client wanted the tool deployed on <strong>Microsoft Azure</strong> — since their operations already run there, keeping everything inside one trusted, secured cloud environment was the safer, simpler choice than introducing a new platform. I containerized the app with Docker and deployed it into their existing Azure setup, so it fits neatly within the infrastructure and security controls their team already relies on.</p>
+        </div>
+        <div class="case-block">
+          <h3>Result</h3>
+          <p>A working, deployed tool that collapses an error-prone, hours-long manual task into a simple upload-and-review flow — saving time and cutting transcription mistakes. More broadly, it's proof of how I now work: pairing an analyst's eye for data accuracy with AI tools to deliver custom software that solves exactly what a client needs.</p>
+        </div>
+      </div>
+      <aside class="case-facts">
+        <dl>
+          <dt>Role</dt>
+          <dd>AI Solutions Builder — end-to-end (design, build, deploy)</dd>
+          <dt>Client</dt>
+          <dd>School-based therapy provider</dd>
+          <dt>Problem</dt>
+          <dd>Manual name entry from scanned PDFs</dd>
+          <dt>Solution</dt>
+          <dd>AI-vision extraction web app</dd>
+          <dt>Tech</dt>
+          <dd><div class="cf-tags"><span>Python</span><span>Flask</span><span>AI Vision</span><span>OCR</span><span>SQLite</span><span>Docker</span><span>Azure</span></div></dd>
+          <dt>Hosting</dt>
+          <dd>Microsoft Azure — the client's existing cloud</dd>
+          <dt>Status</dt>
+          <dd>Live &amp; in use (login-protected)</dd>
+        </dl>
+        <a class="case-live" href="https://pdfrx.eastus.cloudapp.azure.com/" target="_blank" rel="noopener">View the live app ↗</a>
+      </aside>
+    </div>
+  </div>
+</section>
+
 <!-- EDUCATION + ACHIEVEMENTS -->
 <section id="education">
   <div class="wrap reveal">
@@ -606,7 +772,7 @@
     <div class="contact">
       <span class="eyebrow" style="color:#7ff0ad;">Get in touch</span>
       <h2>Let's build something with your data.</h2>
-      <p>Open to part-time and remote reporting/analytics roles. Have a dashboard, a messy spreadsheet, or a reporting workflow that needs fixing? Let's talk.</p>
+      <p>Open to full-time · part-time · remote reporting/analytics roles. Have a dashboard, a messy spreadsheet, or a reporting workflow that needs fixing? Let's talk.</p>
       <div class="contact-list">
         <a class="cbtn cbtn-primary" href="https://calendar.app.google/XLuNjJNjvTuN8BTN8" target="_blank" rel="noopener">📅 Book a call</a>
         <a class="cbtn" id="emailBtn" href="#">✉️ <span id="emailText">Email me</span></a>
