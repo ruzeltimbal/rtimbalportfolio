@@ -28,12 +28,20 @@
   .skills li::before { content: "▪"; color: #27ae60; position: absolute; left: 0; }
 
   .job { margin-bottom: 10px; break-inside: avoid; }
+  .job.job-split { break-inside: auto; }
+  .proj-grp { break-inside: avoid; }
   .job-head { display: flex; justify-content: space-between; align-items: baseline; }
   .job-title { font-weight: 700; font-size: 10.8pt; color: #0a2c4d; }
   .job-date { font-size: 9pt; color: #5b6b7b; font-weight: 600; white-space: nowrap; }
   .job-org { font-size: 9.6pt; color: #2f80ed; font-weight: 600; margin-bottom: 3px; }
   .job ul { margin-left: 16px; }
   .job li { margin-bottom: 2px; }
+  .job .tech { list-style: none; margin-left: -16px; font-size: 9pt; color: #5b6b7b; font-style: italic; }
+  h2 .h2-note { text-transform: none; letter-spacing: 0; font-weight: 600; color: #5b6b7b; }
+  .side { break-inside: avoid; }
+  .proj-head { display: flex; justify-content: space-between; align-items: baseline; font-weight: 700; font-size: 10pt; color: #0a2c4d; margin-top: 6px; }
+  .proj-head i { font-weight: 600; color: #5b6b7b; }
+  .section-note { font-size: 9pt; color: #5b6b7b; margin: 0 0 2px; }
 
   .two { display: grid; grid-template-columns: 1fr 1fr; gap: 0 30px; }
   .block b { color: #0a2c4d; }
@@ -47,7 +55,7 @@
   <header>
     <div class="name">Ruzel P. Timbal, ECE</div>
     <div class="role">Data &amp; Reporting Analyst · Excel Automation Expert · Power BI Developer</div>
-    <div class="role-ai"><b>Beyond Analytics</b> — AI Solutions Builder</div>
+    <div class="role-ai"><b>Beyond Analytics</b> — Automation &amp; AI Solutions Builder</div>
     <div class="contact">
       <span><b>Email:</b> ruzeltimbal2@gmail.com</span> &nbsp;•&nbsp;
       <span><b>Phone:</b> +63 981 279 8273</span> &nbsp;•&nbsp;
@@ -57,7 +65,7 @@
   </header>
 
   <h2>Professional Summary</h2>
-  <p class="obj">Licensed Electronics Engineer and experienced data &amp; reporting analyst skilled at turning data into valuable insights. Focused on improving business processes, boosting efficiency, and supporting smart decision-making through dashboards, SQL reporting, and workflow automation. Strong analytical and problem-solving skills with keen attention to detail. Recently expanded into building and deploying custom, AI-powered web applications end-to-end for clients — pairing an analyst's rigor with AI development tools to ship working solutions fast.</p>
+  <p class="obj">Licensed Electronics Engineer and experienced data &amp; reporting analyst skilled at turning data into valuable insights. Focused on improving business processes, boosting efficiency, and supporting smart decision-making through dashboards, SQL reporting, and workflow automation. Strong analytical and problem-solving skills with keen attention to detail. Also builds custom, AI-powered web apps end-to-end as a part-time Automation &amp; AI Solutions Builder — pairing an analyst's rigor with AI tools to ship working solutions fast.</p>
 
   <h2>Core Skills &amp; Tools</h2>
   <ul class="skills">
@@ -69,10 +77,8 @@
     <li>JobDiva — data retrieval, analysis &amp; reporting</li>
     <li>Data validation, QA &amp; reporting accuracy</li>
     <li>Analytical thinking &amp; problem solving</li>
+    <li>Python · Flask · Docker · Azure (web apps)</li>
   </ul>
-
-  <h2>AI Solutions Builder <span style="text-transform:none; letter-spacing:0; font-weight:600; color:#5b6b7b;">— side capability, kept separate from core analytics</span></h2>
-  <p class="muted">Designing, building, and deploying full working web apps end-to-end with AI development tools. Toolset: Python · Flask · LLMs / AI Vision · OCR · REST APIs · SQLite · Docker · Azure deployment · full-stack web apps. Examples: an AI-powered app that reads scanned PDFs and extracts structured data, and a reconciliation tool that matches Medicaid remittance PDFs against billing exports across a full billing cycle — both built for Zycron Industries and deployed live on Microsoft Azure.</p>
 
   <h2>Professional Experience</h2>
 
@@ -87,6 +93,39 @@
       <li>Provide tools for analyzing recruitment data and generating detailed reports to track performance metrics and support data-driven decisions.</li>
     </ul>
   </div>
+
+  <div class="job job-split">
+    <div class="proj-grp">
+      <div class="job-head"><span class="job-title">Automation &amp; AI Solutions Builder (Part-time)</span><span class="job-date">Feb 2026 – Present</span></div>
+      <div class="job-org">Zycron Industries — US school-based therapy provider (remote)</div>
+      <p class="section-note">Case studies: <a href="https://ruzeltimbal.github.io/rtimbalportfolio/#side-project">ruzeltimbal.github.io/rtimbalportfolio</a></p>
+      <div class="proj-head"><span>Medicaid Eligibility Automation <i>(Excel VBA)</i></span><span class="job-date">Mar 2026</span></div>
+      <ul>
+        <li>Built VBA tools for the monthly Medicaid eligibility check across 47 school districts, generating name variations so students with hyphenated or multi-part names aren't missed.</li>
+        <li>Mapped eligibility results back to the original rosters, with a QA check that flags incomplete response files and a tool that fills student gender from master data.</li>
+        <li class="tech">Excel · VBA · Macros</li>
+      </ul>
+    </div>
+
+    <div class="proj-grp">
+      <div class="proj-head"><span>PDF Name Extractor <i>(AI web app)</i></span><span class="job-date">Jun 2026</span></div>
+      <ul>
+        <li>Built and deployed an AI-vision web app that reads scanned prescription PDFs and saves student names as structured records, replacing manual data entry. Serves 47 schools, with 9,000+ pages processed so far.</li>
+        <li>Integrated with SharePoint (Microsoft Graph) and Power Automate, with daily backups to Azure Blob Storage.</li>
+        <li class="tech">Python · Flask · AI Vision · OCR · SQLite · Docker · Azure</li>
+      </ul>
+    </div>
+
+    <div class="proj-grp">
+      <div class="proj-head"><span>PDF Data Matching <i>(web app)</i></span><span class="job-date">Oct 2026</span></div>
+      <ul>
+        <li>Built a reconciliation tool that checks Medicaid remittance PDFs against billing exports, flagging missing or mismatched claims and denials and explaining gaps in the totals. Cut an hours-long check to seconds.</li>
+        <li>Batch mode covers a full billing cycle (about 20 schools) in one run, with Excel reports.</li>
+        <li class="tech">Python · Flask · pdfplumber · openpyxl · Docker · Azure</li>
+      </ul>
+    </div>
+  </div>
+
 
   <div class="job">
     <div class="job-head"><span class="job-title">Data Analyst</span><span class="job-date">Jul 2022 – May 2024</span></div>
