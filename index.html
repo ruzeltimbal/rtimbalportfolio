@@ -257,6 +257,13 @@
   .proj-viz-app .nm { flex:1; height:7px; border-radius:4px; background:linear-gradient(90deg,#7ff0ad,#2f80ed); text-decoration:none; }
   .proj-viz-app .res:nth-child(2) .nm { max-width:80%; }
   .proj-viz-app .res:nth-child(3) .nm { max-width:62%; }
+  .proj-viz-app .docs { display:flex; gap:6px; flex:none; }
+  .proj-viz-app .doc.csv .pglabel { color:#16a34a; }
+  .proj-viz-app .chk.x { background:#ff5f57; }
+  .proj-viz-app .chk.x::after { left:7px; top:3px; width:0; height:9px; border-width:0 0 0 2px; transform:rotate(45deg); }
+  .proj-viz-app .chk.x::before { content:""; position:absolute; left:7px; top:3px; height:9px; border-left:2px solid #fff; transform:rotate(-45deg); }
+  .proj-viz-app .res .nm.warn { background:linear-gradient(90deg,#ffb4ae,#ff5f57); }
+  .case-grid + .proj-featured-solo { margin-top:56px; }
   .proj-featured .proj-badge { display:inline-block; background:var(--accent); color:#fff; font-size:.68rem; font-weight:700; padding:3px 11px; border-radius:999px; letter-spacing:.05em; text-transform:uppercase; margin-bottom:12px; }
   .proj-actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:18px; }
   .proj-actions a { font-size:.85rem; font-weight:700; padding:9px 17px; border-radius:10px; text-decoration:none; transition: all .2s ease; }
@@ -644,12 +651,12 @@
   <div class="wrap reveal">
     <span class="eyebrow">Side Project · Beyond Analytics</span>
     <h2 class="section-title">Also an AI Solutions Builder</h2>
-    <p class="section-sub">Alongside my core work as a Data &amp; Reporting Analyst and Power BI Developer, I also design and ship custom software for specific business problems — using AI development tools to build real, working solutions. Here's a side project I built end-to-end for a client.</p>
+    <p class="section-sub">Alongside my core work as a Data &amp; Reporting Analyst and Power BI Developer, I also design and ship custom software for specific business problems — using AI development tools to build real, working solutions. Here are two internal tools I built end-to-end for the same client, Zycron Industries.</p>
 
     <div class="card proj proj-featured proj-featured-solo">
       <div class="proj-viz proj-viz-app" aria-hidden="true">
         <div class="appwin">
-          <div class="appbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><b class="url">pdfrx · name extractor</b></div>
+          <div class="appbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><b class="url">zycron · pdf name extractor</b></div>
           <div class="approw">
             <div class="doc"><u class="ln"></u><u class="ln"></u><u class="ln"></u><u class="ln"></u><b class="pglabel">PDF</b></div>
             <div class="arrow">→</div>
@@ -666,7 +673,7 @@
       <h3>AI-Powered PDF Prescription Name Extractor</h3>
       <p>A full-stack web app built end-to-end for a client that automatically reads scanned school-therapy prescription PDFs, extracts each student's name with AI vision, and saves clean, structured records to a database — replacing slow, error-prone manual data entry with a fast upload-and-review flow. Designed, built, and deployed solo, using AI development tools to accelerate the build.</p>
       <div class="proj-actions">
-        <a class="pa-live" href="https://pdfrx.eastus.cloudapp.azure.com/" target="_blank" rel="noopener">View live app ↗</a>
+        <a class="pa-live" href="https://zycron.eastus.cloudapp.azure.com/" target="_blank" rel="noopener">View live app ↗</a>
         <a class="pa-case" href="#case-study">Read the case study →</a>
       </div>
     </div>
@@ -707,7 +714,7 @@
           <dt>Role</dt>
           <dd>AI Solutions Builder — end-to-end (design, build, deploy)</dd>
           <dt>Client</dt>
-          <dd>School-based therapy provider</dd>
+          <dd>Zycron Industries — school-based therapy provider</dd>
           <dt>Problem</dt>
           <dd>Manual name entry from scanned PDFs</dd>
           <dt>Solution</dt>
@@ -719,7 +726,88 @@
           <dt>Status</dt>
           <dd>Live &amp; in use (login-protected)</dd>
         </dl>
-        <a class="case-live" href="https://pdfrx.eastus.cloudapp.azure.com/" target="_blank" rel="noopener">View the live app ↗</a>
+        <a class="case-live" href="https://zycron.eastus.cloudapp.azure.com/" target="_blank" rel="noopener">View the live app ↗</a>
+      </aside>
+    </div>
+
+    <div class="card proj proj-featured proj-featured-solo">
+      <div class="proj-viz proj-viz-app" aria-hidden="true">
+        <div class="appwin">
+          <div class="appbar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><b class="url">zycron · pdf data matching</b></div>
+          <div class="approw">
+            <div class="docs">
+              <div class="doc"><u class="ln"></u><u class="ln"></u><u class="ln"></u><u class="ln"></u><b class="pglabel">PDF</b></div>
+              <div class="doc csv"><u class="ln"></u><u class="ln"></u><u class="ln"></u><u class="ln"></u><b class="pglabel">CSV</b></div>
+            </div>
+            <div class="arrow">⇄</div>
+            <div class="results">
+              <div class="res"><em class="chk"></em><s class="nm"></s></div>
+              <div class="res"><em class="chk x"></em><s class="nm warn"></s></div>
+              <div class="res"><em class="chk"></em><s class="nm"></s></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <span class="proj-badge">AI Solutions Builder</span>
+      <div class="proj-tags"><span>Python</span><span>Flask</span><span>pdfplumber</span><span>Data Reconciliation</span><span>Excel Reporting</span><span>Docker</span><span>Azure</span></div>
+      <h3>PDF Data Matching — Remittance vs. Billing Reconciliation</h3>
+      <p>An internal web app for Zycron Industries that checks eMedNY remittance PDFs against the billing CSV export for the same school district — flagging missing rows in both directions, values that don't match, denied or pended claims, and explaining exactly why the totals do or don't reconcile. Handles one school or a whole billing cycle (~20 schools) in one batch, with downloadable Excel reports.</p>
+      <div class="proj-actions">
+        <a class="pa-live" href="https://zycron.eastus.cloudapp.azure.com/data-matching/" target="_blank" rel="noopener">View live app ↗</a>
+        <a class="pa-case" href="#case-study-matching">Read the case study →</a>
+      </div>
+    </div>
+
+    <div class="case-grid" id="case-study-matching">
+      <div>
+        <div class="case-block">
+          <h3>Background</h3>
+          <p>Every billing cycle, Zycron receives Medicaid remittance statements as PDFs — one per school district — and has to confirm they line up with what was actually billed. Doing that by hand meant reading claim after claim off the PDF and hunting for each one in a spreadsheet export, across roughly twenty schools per cycle. Missing claims, wrong rate codes, and unexplained gaps in the totals were easy to miss.</p>
+        </div>
+        <div class="case-block">
+          <h3>Objective</h3>
+          <p>Make reconciliation fast and trustworthy: upload the remittance and billing files, and get a clear answer on what matches, what doesn't, and why the totals differ — for one school or the entire cycle at once.</p>
+        </div>
+        <div class="case-block">
+          <h3>What the client needed</h3>
+          <ul>
+            <li>Compare each remittance PDF with its billing CSV, row by row</li>
+            <li>Flag missing claims on either side and fields that don't match</li>
+            <li>Surface denials and pends, with the reason</li>
+            <li>Explain the gap between billed, charged, and paid totals</li>
+            <li>Check a full cycle of schools in one go</li>
+            <li>Excel reports to fix exports and follow up on denials</li>
+            <li>Same secure sign-in as their other Zycron tool — patient data stays protected</li>
+          </ul>
+        </div>
+        <div class="case-block">
+          <h3>My approach</h3>
+          <p>I built a matching engine that pairs claims on <strong>Medicaid ID + date of service + rate code</strong>, one-to-one, so two services on the same day are handled correctly. Unmatched rows get a second pass on ID + date, so a wrong rate code shows up as a single field difference instead of two "missing" rows. Name checks allow for the truncation the PDF applies, and every gap in the totals is broken down into the reasons that add up to it — denials, pends, partial payments, and missing rows.</p>
+          <p>To make the output trustworthy, the app runs a <strong>read check</strong>: the claims parsed from the PDF must add up to the totals the PDF itself prints. If they don't, it shows a clear warning rather than a misleading comparison. In batch mode, files are paired automatically by the Medicaid IDs inside them (so renamed files still work) and confirmed by district name, with a review step before running. It ships as a Docker container on the client's existing <strong>Microsoft Azure</strong> setup, sharing sign-in with the PDF Name Extractor, and uploaded files are deleted after reading — results expire after an hour.</p>
+        </div>
+        <div class="case-block">
+          <h3>Result</h3>
+          <p>A cycle's worth of reconciliation that used to mean hours of side-by-side checking now takes a couple of uploads: a summary table with the schools that need attention listed first, a detailed report per school, and a single Excel workbook covering the whole batch. It turned my day-to-day data-validation discipline into a tool the client's team can run themselves.</p>
+        </div>
+      </div>
+      <aside class="case-facts">
+        <dl>
+          <dt>Role</dt>
+          <dd>AI Solutions Builder — end-to-end (design, build, deploy)</dd>
+          <dt>Client</dt>
+          <dd>Zycron Industries</dd>
+          <dt>Problem</dt>
+          <dd>Manual remittance vs. billing reconciliation</dd>
+          <dt>Solution</dt>
+          <dd>Automated matching &amp; reconciliation web app</dd>
+          <dt>Tech</dt>
+          <dd><div class="cf-tags"><span>Python</span><span>Flask</span><span>pdfplumber</span><span>openpyxl</span><span>Docker</span><span>Nginx</span><span>Azure</span></div></dd>
+          <dt>Hosting</dt>
+          <dd>Microsoft Azure — the client's existing cloud</dd>
+          <dt>Status</dt>
+          <dd>Live &amp; in use (login-protected)</dd>
+        </dl>
+        <a class="case-live" href="https://zycron.eastus.cloudapp.azure.com/data-matching/" target="_blank" rel="noopener">View the live app ↗</a>
       </aside>
     </div>
   </div>
