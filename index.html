@@ -1063,7 +1063,7 @@
         io.unobserve(e.target);
       }
     });
-  }, { threshold: 0.15 });
+  }, { threshold: 0, rootMargin: '0px 0px -10% 0px' }); // fire on entry, not % of height — tall sections never reach a ratio threshold
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
